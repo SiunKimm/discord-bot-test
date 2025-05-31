@@ -13,8 +13,11 @@ class GeminiCog(commands.Cog):
     @commands.command(name='질문')
     async def ask_gemini(self, ctx, *, question):
         try:
-            model = genai.GenerativeModel("gemini-pro")
+            thinking_msg = await ctx.send(f"'{question}' 에 대해 생각 해볼려구... 잠시 기다려봐")
+
+            model = genai.GenerativeModel("gemma-3-27b-it")
             response = model.generate_content(question)
+
             await ctx.send(response.text[:1900])
         except Exception as e:
             await ctx.send(f"오류 발생: {e}")
