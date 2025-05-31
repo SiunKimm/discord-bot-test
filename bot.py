@@ -1,6 +1,9 @@
-import os
+# bot.py
+
 import discord
 from discord.ext import commands
+
+import os
 from dotenv import load_dotenv
 
 load_dotenv()
@@ -13,10 +16,13 @@ bot = commands.Bot(command_prefix="!", intents=intents)
 
 @bot.event
 async def on_ready():
-    print(f"✅ 봇 로그인 성공: {bot.user}")
+    print(f"봇 로그인 성공: {bot.user}")
 
-@bot.command()
-async def 안녕(ctx):
-    await ctx.send("안녕하세요! 테스트 해볼려구여 ㅋ")
+@bot.event
+async def setup_hook():
+    from cogs.dice import DiceCog
+    from cogs.time import TimeCog
+    await bot.add_cog(DiceCog(bot))
+    await bot.add_cog(TimeCog(bot))
 
 bot.run(TOKEN)
