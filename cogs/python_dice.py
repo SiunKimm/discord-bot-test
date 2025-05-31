@@ -1,4 +1,4 @@
-# dice.py
+# python-dice
 
 from discord.ext import commands
 import random
