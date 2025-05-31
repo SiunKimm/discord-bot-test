@@ -20,9 +20,11 @@ async def on_ready():
 
 @bot.event
 async def setup_hook():
-    from cogs.dice import DiceCog
-    from cogs.time import TimeCog
+    from cogs.python_dice import DiceCog
     await bot.add_cog(DiceCog(bot))
+    from cogs.python_time import TimeCog
     await bot.add_cog(TimeCog(bot))
+    from cogs.google_gemini import GeminiCog
+    await bot.add_cog(GeminiCog(bot))
 
 bot.run(TOKEN)
