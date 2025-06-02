@@ -1,1 +1,1 @@
-# discord-bot-test
+# discord-gemini-bot
