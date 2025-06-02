@@ -1,8 +1,6 @@
 # bot.py
-
 import discord
 from discord.ext import commands
-
 import os
 from dotenv import load_dotenv
 
@@ -12,7 +10,7 @@ TOKEN = os.getenv("DISCORD_BOT_TOKEN")
 intents = discord.Intents.default()
 intents.message_content = True
 
-bot = commands.Bot(command_prefix="!", intents=intents)
+bot = commands.Bot(command_prefix="/", intents=intents)
 
 @bot.event
 async def on_ready():
@@ -22,9 +20,14 @@ async def on_ready():
 async def setup_hook():
     from cogs.python_dice import DiceCog
     await bot.add_cog(DiceCog(bot))
+
     from cogs.python_time import TimeCog
     await bot.add_cog(TimeCog(bot))
+
     from cogs.google_gemini import GeminiCog
     await bot.add_cog(GeminiCog(bot))
+
+    # Slash command 동기화
+    await bot.tree.sync()
 
 bot.run(TOKEN)
