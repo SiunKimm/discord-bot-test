@@ -27,7 +27,7 @@ async def setup_hook():
     from cogs.google_gemini import GeminiCog
     await bot.add_cog(GeminiCog(bot))
 
-    # Slash command 동기화
+    # Slash command
     await bot.tree.sync()
 
 bot.run(TOKEN)
