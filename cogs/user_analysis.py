@@ -115,7 +115,7 @@ class UserAnalysisCog(commands.Cog):
 
         # Gemini 호출 및 결과 분할
         try:
-            result = ask_gemini_question(prompt)
+            result = await ask_gemini_question(prompt)  # 비동기 호출로 수정
         except Exception as e:
             await interaction.followup.send(f"Gemini 응답 중 오류가 발생했어요: {e}")
             return

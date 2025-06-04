@@ -11,5 +11,5 @@ class GeminiCog(commands.Cog):
     @app_commands.command(name="소라고동", description="마법의 소라고동님 도와주세요")
     async def ask_gemini(self, interaction: discord.Interaction, question: str):
         await interaction.response.send_message(f"'{question}' 에 대해 생각 중... 잠시만 기다려줘!", ephemeral=True)
-        response_text = ask_gemini_question(question)
+        response_text = await ask_gemini_question(question)
         await interaction.followup.send(response_text[:1900])
