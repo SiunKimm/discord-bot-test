@@ -40,17 +40,5 @@ async def setup_hook():
     await bot.tree.sync()
     print("✅ 커맨드 초기화 및 재등록 완료")
 
-"""
-# 슬래시 커맨드로 등록된 명령어 확인
-@bot.tree.command(name="명령어", description="등록된 명령어를 확인합니다.")
-async def registered_commands(interaction: discord.Interaction):
-    cmds = bot.tree.get_commands()
-    if not cmds:
-        await interaction.response.send_message("등록된 명령어가 없어요.")
-    else:
-        msg = "\n".join([f"/{cmd.name} - {cmd.description}" for cmd in cmds])
-        await interaction.response.send_message(f"🔍 등록된 명령어 목록:\n{msg}")
-"""
-
 # 봇 실행
 bot.run(DISCORD_TOKEN)
