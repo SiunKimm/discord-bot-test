@@ -7,7 +7,7 @@ genai.configure(api_key=GEMINI_API_KEY)
 model = genai.GenerativeModel("gemma-3-27b-it")
 
 async def ask_gemini_question(prompt: str) -> str:
-    loop = asyncio.get_event_loop()
+    loop = asyncio.get_running_loop()
     try:
         response = await asyncio.wait_for(
             loop.run_in_executor(None, model.generate_content, prompt),
