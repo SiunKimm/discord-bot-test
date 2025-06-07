@@ -38,7 +38,7 @@ async def setup_hook():
 
     # 글로벌 커맨드 재등록
     await bot.tree.sync()
-    print("✅ 커맨드 초기화 및 재등록 완료")
+    print("커맨드 초기화 및 재등록 완료")
 
 # 봇 실행
 bot.run(DISCORD_TOKEN)
