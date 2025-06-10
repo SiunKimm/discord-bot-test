@@ -7,5 +7,5 @@ async def registered_commands(interaction: discord.Interaction):
         await interaction.response.send_message("등록된 명령어가 없어요.")
     else:
         msg = "\n".join([f"/{cmd.name} - {cmd.description}" for cmd in cmds])
-        await interaction.response.send_message(f"🔍 등록된 명령어 목록:\n{msg}")
+        await interaction.response.send_message(f"등록된 명령어 목록:\n{msg}")
 """
